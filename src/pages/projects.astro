@@ -1,0 +1,27 @@
+---
+import projectsData from "../data/projectsData.json";
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="Projects | daxog">
+  <div class="text-center mx-auto mt-12 text-left max-w-2xl px-4">
+    <h1 class="text-3xl">Projects</h1>
+    <div class="mt-6">
+      {projectsData.map((project) => (
+        <div class="mb-8">
+          <div class="flex justify-between items-center">
+            <h2 class="text-xl font-medium">{project.title}</h2>
+            <div class="flex space-x-2">
+              {project.links.map((link) => (
+                <a href={link.url} target="_blank" rel="noopener noreferrer" class="hover:underline">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+          <p class="mt-2 text-gray-500">{project.technologies.join(" ")}</p>
+          <p class="mt-2">{project.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>

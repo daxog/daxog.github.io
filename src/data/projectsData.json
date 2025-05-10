@@ -1,0 +1,19 @@
+[
+  {
+    "title": "gitus",
+    "technologies": ["rust"],
+    "links": [
+      { "label": "github", "url": "https://github.com/daxog/gitus" },
+      { "label": "crates", "url": "https://crates.io/crates/gitus" }
+    ],
+    "description": "Simple CLI tool to switch between Git users."
+  },
+  {
+    "title": "personal website",
+    "technologies": ["react"],
+    "links": [
+      { "label": "github", "url": "https://github.com/daxog/daxog.github.io" }
+    ],
+    "description": "Personal website."
+  }
+]
