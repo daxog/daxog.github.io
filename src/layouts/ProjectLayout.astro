@@ -1,0 +1,37 @@
+---
+import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
+
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/webp" href="/cute.webp" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{frontmatter.title} | daxog Projects</title>
+  </head>
+  <body>
+    <Navbar />
+    <div class="text-center mx-auto mt-12 text-left max-w-2xl px-4">
+      <h1 class="text-3xl font-bold mb-2">{frontmatter.title}</h1>
+
+      {frontmatter.links && frontmatter.links.length > 0 && (
+        <div class="mb-4">
+          <div class="flex space-x-2">
+            {frontmatter.links.map((link: { label: string; url: string }) => (
+              <a href={link.url} target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+      
+      <article class="prose lg:prose-xl max-w-none mt-6 space-y-6">
+        <slot />
+      </article>
+    </div>
+  </body>
+</html>

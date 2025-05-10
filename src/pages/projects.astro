@@ -1,27 +1,33 @@
 ---
-import projectsData from "../data/projectsData.json";
 import Layout from "../layouts/Layout.astro";
+
+const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
 ---
+
 <Layout title="Projects | daxog">
   <div class="text-center mx-auto mt-12 text-left max-w-2xl px-4">
     <h1 class="text-3xl">Projects</h1>
     <div class="mt-6">
-      {projectsData.map((project) => (
-        <div class="mb-8">
-          <div class="flex justify-between items-center">
-            <h2 class="text-xl font-medium">{project.title}</h2>
-            <div class="flex space-x-2">
-              {project.links.map((link) => (
-                <a href={link.url} target="_blank" rel="noopener noreferrer" class="hover:underline">
-                  {link.label}
-                </a>
-              ))}
+      {projects.length === 0 ? (
+        <p>No projects available yet.</p>
+      ) : (
+        projects.map((project: any) => (
+          <div class="mb-8">
+            <div class="flex justify-between items-center">
+              <a href={project.url} class="text-xl font-medium hover:underline">{project.frontmatter.title}</a>
+              <div class="flex space-x-2">
+                {project.frontmatter.links?.map((link: any) => (
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline">
+                    {link.label}
+                  </a>
+                ))}
+              </div>
             </div>
+            <p class="mt-2 text-gray-500">{project.frontmatter.technologies?.join(" ")}</p>
+            <p class="mt-2">{project.frontmatter.description}</p>
           </div>
-          <p class="mt-2 text-gray-500">{project.technologies.join(" ")}</p>
-          <p class="mt-2">{project.description}</p>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   </div>
 </Layout>
