@@ -17,7 +17,9 @@ const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true
               <a href={project.url} class="text-xl font-medium hover:underline">{project.frontmatter.title}</a>
               <div class="flex space-x-2">
                 {project.frontmatter.links?.map((link: any) => (
-                  <a href={link.url} target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:underline">
+                  <a href={link.url} target="_blank" rel="noopener noreferrer" 
+                    class="text-gray-600 dark:text-gray-400 hover:underline hover:text-indigo-600 dark:hover:text-indigo-400"
+                  >
                     {link.label}
                   </a>
                 ))}

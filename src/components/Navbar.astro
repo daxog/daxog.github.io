@@ -1,17 +1,15 @@
 ---
+import ThemeToggle from './ThemeToggle.astro';
 import BearIcon from '../../public/cute.webp';
 ---
 <nav class="w-full flex items-center justify-between py-4 px-6">
   <a href="/" class="flex items-center">
-    <img 
-      src={BearIcon.src}
-      alt="cute" 
-      class="w-10 h-10 rounded-full transition-transform duration-300 hover:scale-110" 
-    />
+    <img src={BearIcon.src} alt="cute" class="w-10 h-10 rounded-full transition-transform duration-300 hover:scale-110" />
   </a>
   <ul class="flex flex-row gap-x-4 items-center">
     <li><a href="/" class="hover:underline">about</a></li>
     <li><a href="/projects" class="hover:underline">projects</a></li>
     <li><a href="/writing" class="hover:underline">writing</a></li>
+    <li><ThemeToggle /></li>
   </ul>
 </nav>
