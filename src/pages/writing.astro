@@ -1,16 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const allPosts = Object.values(import.meta.glob('./posts/*.md', { eager: true }));
+const allWritings = Object.values(import.meta.glob('./writings/*.md', { eager: true }));
 ---
 
 <Layout title="Writing | daxog">
   <div class="text-center mx-auto mt-12 text-left max-w-2xl px-4">
     <h1 class="text-3xl">Writing</h1>
-    {allPosts.length === 0 ? (
+    {allWritings.length === 0 ? (
       <p class="mt-6 text-xl">Nothing yet.</p>
     ) : (
-      allPosts.map((post: any) => 
+      allWritings.map((post: any) => 
         <ul class="block mt-6">
           <div class="flex justify-between items-center">
             <a href={post.url} class="text-xl hover:underline">{post.frontmatter.title}</a>

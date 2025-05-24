@@ -8,6 +8,12 @@ import "../styles/global.css";
     <meta charset="utf-8" />
     <link rel="icon" type="image/webp" href="/cute.webp" />
     <meta name="viewport" content="width=device-width" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={title}
+      href={new URL("rss.xml", Astro.site)}
+    />
     <title>{title}</title>
   </head>
   <body class="dark:bg-neutral-900 dark:text-gray-50">
