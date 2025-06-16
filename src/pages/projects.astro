@@ -1,12 +1,26 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const projects = Object.values(import.meta.glob('./projects/*.md', { eager: true }));
+type Project = {
+  url: string;
+  frontmatter: {
+    title: string;
+    date: string;
+    description: string;
+    technologies?: string[];
+    links?: { label: string; url: string }[];
+  };
+};
+
+const projects: Project[] = Object
+  .values(import.meta.glob<Project>('./projects/*.md', { eager: true }))
+  .sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+
 ---
 
 <Layout title="Projects | daxog">
   <div class="text-center mx-auto mt-12 text-left max-w-2xl px-4">
-    <h1 class="text-3xl">Projects</h1>
+    <h1 class="text-3xl font-bold">Projects</h1>
     <div class="mt-6">
       {projects.length === 0 ? (
         <p>No projects available yet.</p>

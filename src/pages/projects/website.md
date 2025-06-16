@@ -1,5 +1,6 @@
 ---
 title: "personal website"
+date: 2025-05-01
 description: "You're on it right now."
 technologies: ["astro"]
 links:
