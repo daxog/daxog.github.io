@@ -28,7 +28,7 @@ const projects: Project[] = Object
         projects.map((project: any) => (
           <div class="mb-8">
             <div class="flex justify-between items-center">
-              <a href={project.url} class="text-xl font-medium hover:underline">{project.frontmatter.title}</a>
+              <h2 class="text-xl font-medium">{project.frontmatter.title}</h2>
               <div class="flex space-x-2">
                 {project.frontmatter.links?.map((link: any) => (
                   <a href={link.url} target="_blank" rel="noopener noreferrer" 
